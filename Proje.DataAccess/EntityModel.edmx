@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="WebProjeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="icerik">
+          <Key>
+            <PropertyRef Name="icerikid" />
+          </Key>
+          <Property Name="icerikid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="icerikYazari" Type="varchar" MaxLength="50" />
+          <Property Name="icerikTarihi" Type="varchar" MaxLength="50" />
+          <Property Name="icerikPuani" Type="int" />
+        </EntityType>
+        <EntityType Name="Kullanici">
+          <Key>
+            <PropertyRef Name="Kullaniciid" />
+          </Key>
+          <Property Name="Kullaniciid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KullaniciSifre" Type="varchar" MaxLength="50" />
+          <Property Name="KullaniciAdi" Type="varchar" MaxLength="50" />
+          <Property Name="KullaniciEpostasi" Type="varchar" MaxLength="50" />
+          <Property Name="KullaniciKayitTarihi" Type="timestamp" StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="Tema">
+          <Key>
+            <PropertyRef Name="Temaid" />
+          </Key>
+          <Property Name="Temaid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TemaKonusu" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Tümü">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="Temano" Type="int" />
+          <Property Name="icerikno" Type="int" />
+          <Property Name="kullanicino" Type="int" />
+        </EntityType>
+        <Association Name="FK_Tümü_icerik">
+          <End Role="icerik" Type="Self.icerik" Multiplicity="0..1" />
+          <End Role="Tümü" Type="Self.Tümü" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="icerik">
+              <PropertyRef Name="icerikid" />
+            </Principal>
+            <Dependent Role="Tümü">
+              <PropertyRef Name="icerikno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tümü_Kullanici">
+          <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="0..1" />
+          <End Role="Tümü" Type="Self.Tümü" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanici">
+              <PropertyRef Name="Kullaniciid" />
+            </Principal>
+            <Dependent Role="Tümü">
+              <PropertyRef Name="kullanicino" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tümü_Tema">
+          <End Role="Tema" Type="Self.Tema" Multiplicity="0..1" />
+          <End Role="Tümü" Type="Self.Tümü" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tema">
+              <PropertyRef Name="Temaid" />
+            </Principal>
+            <Dependent Role="Tümü">
+              <PropertyRef Name="Temano" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="WebProjeModelStoreContainer">
+          <EntitySet Name="icerik" EntityType="Self.icerik" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kullanici" EntityType="Self.Kullanici" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tema" EntityType="Self.Tema" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tümü" EntityType="Self.Tümü" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Tümü_icerik" Association="Self.FK_Tümü_icerik">
+            <End Role="icerik" EntitySet="icerik" />
+            <End Role="Tümü" EntitySet="Tümü" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tümü_Kullanici" Association="Self.FK_Tümü_Kullanici">
+            <End Role="Kullanici" EntitySet="Kullanici" />
+            <End Role="Tümü" EntitySet="Tümü" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tümü_Tema" Association="Self.FK_Tümü_Tema">
+            <End Role="Tema" EntitySet="Tema" />
+            <End Role="Tümü" EntitySet="Tümü" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="WebProjeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="icerik">
+          <Key>
+            <PropertyRef Name="icerikid" />
+          </Key>
+          <Property Name="icerikid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="icerikYazari" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="icerikTarihi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="icerikPuani" Type="Int32" />
+          <NavigationProperty Name="Tümü" Relationship="Self.FK_Tümü_icerik" FromRole="icerik" ToRole="Tümü" />
+        </EntityType>
+        <EntityType Name="Kullanici">
+          <Key>
+            <PropertyRef Name="Kullaniciid" />
+          </Key>
+          <Property Name="Kullaniciid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KullaniciSifre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="KullaniciAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="KullaniciEpostasi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="KullaniciKayitTarihi" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="Tümü" Relationship="Self.FK_Tümü_Kullanici" FromRole="Kullanici" ToRole="Tümü" />
+        </EntityType>
+        <EntityType Name="Tema">
+          <Key>
+            <PropertyRef Name="Temaid" />
+          </Key>
+          <Property Name="Temaid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TemaKonusu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Tümü" Relationship="Self.FK_Tümü_Tema" FromRole="Tema" ToRole="Tümü" />
+        </EntityType>
+        <EntityType Name="Tümü">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="Temano" Type="Int32" />
+          <Property Name="icerikno" Type="Int32" />
+          <Property Name="kullanicino" Type="Int32" />
+          <NavigationProperty Name="icerik" Relationship="Self.FK_Tümü_icerik" FromRole="Tümü" ToRole="icerik" />
+          <NavigationProperty Name="Kullanici" Relationship="Self.FK_Tümü_Kullanici" FromRole="Tümü" ToRole="Kullanici" />
+          <NavigationProperty Name="Tema" Relationship="Self.FK_Tümü_Tema" FromRole="Tümü" ToRole="Tema" />
+        </EntityType>
+        <Association Name="FK_Tümü_icerik">
+          <End Role="icerik" Type="Self.icerik" Multiplicity="0..1" />
+          <End Role="Tümü" Type="Self.Tümü" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="icerik">
+              <PropertyRef Name="icerikid" />
+            </Principal>
+            <Dependent Role="Tümü">
+              <PropertyRef Name="icerikno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tümü_Kullanici">
+          <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="0..1" />
+          <End Role="Tümü" Type="Self.Tümü" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanici">
+              <PropertyRef Name="Kullaniciid" />
+            </Principal>
+            <Dependent Role="Tümü">
+              <PropertyRef Name="kullanicino" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tümü_Tema">
+          <End Role="Tema" Type="Self.Tema" Multiplicity="0..1" />
+          <End Role="Tümü" Type="Self.Tümü" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tema">
+              <PropertyRef Name="Temaid" />
+            </Principal>
+            <Dependent Role="Tümü">
+              <PropertyRef Name="Temano" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="WebProjeEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="icerik" EntityType="Self.icerik" />
+          <EntitySet Name="Kullanici" EntityType="Self.Kullanici" />
+          <EntitySet Name="Tema" EntityType="Self.Tema" />
+          <EntitySet Name="Tümü" EntityType="Self.Tümü" />
+          <AssociationSet Name="FK_Tümü_icerik" Association="Self.FK_Tümü_icerik">
+            <End Role="icerik" EntitySet="icerik" />
+            <End Role="Tümü" EntitySet="Tümü" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tümü_Kullanici" Association="Self.FK_Tümü_Kullanici">
+            <End Role="Kullanici" EntitySet="Kullanici" />
+            <End Role="Tümü" EntitySet="Tümü" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tümü_Tema" Association="Self.FK_Tümü_Tema">
+            <End Role="Tema" EntitySet="Tema" />
+            <End Role="Tümü" EntitySet="Tümü" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="WebProjeModelStoreContainer" CdmEntityContainer="WebProjeEntities">
+          <EntitySetMapping Name="icerik">
+            <EntityTypeMapping TypeName="WebProjeModel.icerik">
+              <MappingFragment StoreEntitySet="icerik">
+                <ScalarProperty Name="icerikid" ColumnName="icerikid" />
+                <ScalarProperty Name="icerikYazari" ColumnName="icerikYazari" />
+                <ScalarProperty Name="icerikTarihi" ColumnName="icerikTarihi" />
+                <ScalarProperty Name="icerikPuani" ColumnName="icerikPuani" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kullanici">
+            <EntityTypeMapping TypeName="WebProjeModel.Kullanici">
+              <MappingFragment StoreEntitySet="Kullanici">
+                <ScalarProperty Name="Kullaniciid" ColumnName="Kullaniciid" />
+                <ScalarProperty Name="KullaniciSifre" ColumnName="KullaniciSifre" />
+                <ScalarProperty Name="KullaniciAdi" ColumnName="KullaniciAdi" />
+                <ScalarProperty Name="KullaniciEpostasi" ColumnName="KullaniciEpostasi" />
+                <ScalarProperty Name="KullaniciKayitTarihi" ColumnName="KullaniciKayitTarihi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tema">
+            <EntityTypeMapping TypeName="WebProjeModel.Tema">
+              <MappingFragment StoreEntitySet="Tema">
+                <ScalarProperty Name="Temaid" ColumnName="Temaid" />
+                <ScalarProperty Name="TemaKonusu" ColumnName="TemaKonusu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tümü">
+            <EntityTypeMapping TypeName="WebProjeModel.Tümü">
+              <MappingFragment StoreEntitySet="Tümü">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Temano" ColumnName="Temano" />
+                <ScalarProperty Name="icerikno" ColumnName="icerikno" />
+                <ScalarProperty Name="kullanicino" ColumnName="kullanicino" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

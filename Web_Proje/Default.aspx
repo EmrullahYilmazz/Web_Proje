@@ -50,13 +50,10 @@
 		    <div class="container text-center">
 			    <h2 class="heading">Fikir ve Oylama Sistemi</h2>
 			    <div class="intro">Hoşgeldiniz</div>
-			    <form class="signup-form form-inline justify-content-center pt-3">
+			    </div>
                     <div class="form-group">
-                        <label class="sr-only" for="semail">Your email</label>
-                        <input type="email" id="semail" name="semail1" class="form-control mr-md-1 semail" placeholder="Enter email">
+                        <label class="sr-only" for="semail">Your email</label>&nbsp;
                     </div>
-                    <button type="submit" class="btn btn-primary">Subscribe</button>
-                </form>
 		    </div><!--//container-->
 	    </section>
 	    <section class="blog-list px-3 py-5 p-md-5">
@@ -104,6 +101,11 @@
     <!-- Style Switcher (REMOVE ON YOUR PRODUCTION SITE) -->
     <script src="Template/assets/js/demo/style-switcher.js"></script>     
     </form>
+	    
+	    <p>
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
 	    
 	    </body>
 </html>
