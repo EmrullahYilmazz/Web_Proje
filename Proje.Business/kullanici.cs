@@ -8,5 +8,6 @@ namespace Proje.Business
 {
     public class kullanici
     {
+
     }
 }
