@@ -30,5 +30,20 @@ namespace Web_Proje
         {
 
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Proje.Business.kullanicilar kullanicilar = new Proje.Business.kullanicilar();
+            var kullanici = kullanicilar.KullaniciariGetir();
+            GridView1.DataSource = kullanici;
+            GridView1.DataBind();
+
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            ListBox1.Items.Add(new ListItem(TextBox1.Text));
+
+        }
     }
 }

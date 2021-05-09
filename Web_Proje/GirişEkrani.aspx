@@ -144,7 +144,7 @@ body {
       <asp:Label ID="Label2" runat="server" Text="Şifre "></asp:Label><asp:TextBox ID="txtkSifre" runat="server" CssClass="auto-style2"></asp:TextBox>
       <br />
       <br />
-      <asp:Label ID="Label3" runat="server" Text="E-Posta"></asp:Label><asp:TextBox ID="txtkEposta" runat="server" CssClass="auto-style3"></asp:TextBox>
+      <asp:Label ID="Label3" runat="server" Text="E-Posta "></asp:Label><asp:TextBox ID="txtkEposta" runat="server" CssClass="auto-style3"></asp:TextBox>
       <br /> <br />
         <asp:Button ID="btnKayitOl" runat="server" Text="Kayıt Ol" OnClick="btnKayitOl_Click" />
         </div>
@@ -162,6 +162,36 @@ body {
         <br />
         <asp:Button ID="btnGiris" runat="server" Text="Giriş" OnClick="btnGiris_Click" />
         </div>
+        </div>
+        <div>
+            <asp:GridView ID="GridView1" runat="server" BackColor="White" BorderColor="#3366CC" BorderStyle="None" BorderWidth="1px" CellPadding="4">
+                <FooterStyle BackColor="#99CCCC" ForeColor="#003399" />
+                <HeaderStyle BackColor="#003399" Font-Bold="True" ForeColor="#CCCCFF" />
+                <PagerStyle BackColor="#99CCCC" ForeColor="#003399" HorizontalAlign="Left" />
+                <RowStyle BackColor="White" ForeColor="#003399" />
+                <SelectedRowStyle BackColor="#009999" Font-Bold="True" ForeColor="#CCFF99" />
+                <SortedAscendingCellStyle BackColor="#EDF6F6" />
+                <SortedAscendingHeaderStyle BackColor="#0D4AC4" />
+                <SortedDescendingCellStyle BackColor="#D6DFDF" />
+                <SortedDescendingHeaderStyle BackColor="#002876" />
+            </asp:GridView><br />
+            <asp:Button ID="Button1" runat="server" Text="Getir" OnClick="Button1_Click" />
+        </div>
+
+        <div>
+            <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+            <ContentTemplate>
+                <asp:ListBox ID="ListBox1" runat="server"></asp:ListBox>
+                <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+            </ContentTemplate>
+                <Triggers>
+                    <asp:AsyncPostBackTrigger ControlID="Button2" EventName="Click" />
+
+                </Triggers>
+            </asp:UpdatePanel>
+            
+            <asp:Button ID="Button2" runat="server" Text="Button" OnClick="Button2_Click" />
         </div>
       
     </form>
