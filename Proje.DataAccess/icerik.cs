@@ -24,6 +24,7 @@ namespace Proje.DataAccess
         public string icerikYazari { get; set; }
         public string icerikTarihi { get; set; }
         public Nullable<int> icerikPuani { get; set; }
+        public string icerikYazisi { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Tümü> Tümü { get; set; }

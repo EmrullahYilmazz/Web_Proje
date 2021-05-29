@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Web_Proje.Default" %>
+﻿<%@ Page Language="C#" debug="true" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Web_Proje.Default" %>
 
 <!DOCTYPE html>
 
@@ -20,6 +20,11 @@
     
     <!-- Theme CSS -->  
     <link rel="stylesheet" href="Template/assets/css/theme-1.css">
+    <style type="text/css">
+        .auto-style2 {
+            height: 244px;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -46,32 +51,14 @@
     </header>
     
     <div class="main-wrapper">
-	    <section class="cta-section theme-bg-light py-5">
-		    <div class="container text-center">
+		    <div class="container text-center" style="height: 124px">
 			    <h2 class="heading">Fikir ve Oylama Sistemi</h2>
 			    <div class="intro">
                     <asp:Label ID="labelhg" runat="server" Text=""></asp:Label>
                     <br />
                     --Hoşgeldiniz--</div>
 			    </div>
-                    <div class="form-group">
-                        <label class="sr-only" for="semail">Your email</label>&nbsp;
-                    </div>
-		    </div><!--//container-->
-	    </section>
-	    <section class="blog-list px-3 py-5 p-md-5">
-		    
-			    
-			    
-			    
-			   
-			  
-				
-		        </div>
-	    </section>
-	    
-    </div><!--//main-wrapper-->
-    
+                  
     
     
     
@@ -91,24 +78,46 @@
                 <li class="theme-8  list-inline-item"><a data-style="assets/css/theme-8.css" href="#"></a></li>
             </ul>
             <a id="config-close" class="close" href="#"><i class="fa fa-times-circle"></i></a>
-        </div><!--//panel-inner-->
-    </div><!--//configure-panel-->
+        </div>
+    </div>
 
+       
+        <div align="center" class="auto-style2"> 
+        <tr>
+            
+            <td><asp:TextBox ID="TextBox1" runat="server" Width="443px" Height="69px" TextMode="MultiLine"></asp:TextBox> </td>
+        </tr>
+            <br />
+            <br />
+        <tr>
+                <td><asp:Button ID="Button1" runat="server" Text="Gönderi Ekle" OnClick="Button1_Click" /></td>
+        </tr>
+        <br />
+            <br />
+
+         <tr>
+             <td>
+                  &nbsp; 
+             </td>
+         </tr>
+            </div>
+    
+         &nbsp; 
+            
+               
+           
     
        
-    <!-- Javascript -->          
     <script src="Template/assets/plugins/jquery-3.3.1.min.js"></script>
     <script src="Template/assets/plugins/popper.min.js"></script> 
     <script src="Template/assets/plugins/bootstrap/js/bootstrap.min.js"></script> 
 
     <!-- Style Switcher (REMOVE ON YOUR PRODUCTION SITE) -->
     <script src="Template/assets/js/demo/style-switcher.js"></script>     
+           
     </form>
 	    
-	    <p>
-            &nbsp;</p>
-        <p>
-            &nbsp;</p>
+	   
 	    
 	    </body>
 </html>

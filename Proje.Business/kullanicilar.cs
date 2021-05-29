@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Proje.DataAccess;
 
 namespace Proje.Business
 {
@@ -20,6 +21,24 @@ namespace Proje.Business
             ent.Kullanici.Add(kullanicilar);
             ent.SaveChanges();
         }
+
+        public static void IcerikEkle(Proje.DataAccess.icerik yazilar)
+        {
+            Proje.DataAccess.WebProjeEntities ent = new DataAccess.WebProjeEntities();
+            ent.icerik.Add(yazilar);
+            ent.SaveChanges();
+        }
         
+        public List <Proje.DataAccess.icerik> icerigiGetir()
+        {
+            Proje.DataAccess.WebProjeEntities ent = new DataAccess.WebProjeEntities();
+            var sonuc1 = ent.icerik.ToList();
+            return sonuc1;
+        }
+
+        public static implicit operator kullanicilar(icerik v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

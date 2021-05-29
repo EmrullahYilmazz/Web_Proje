@@ -13,6 +13,7 @@
           <Property Name="icerikYazari" Type="varchar" MaxLength="50" />
           <Property Name="icerikTarihi" Type="varchar" MaxLength="50" />
           <Property Name="icerikPuani" Type="int" />
+          <Property Name="icerikYazisi" Type="text" />
         </EntityType>
         <EntityType Name="Kullanici">
           <Key>
@@ -107,6 +108,7 @@
           <Property Name="icerikTarihi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="icerikPuani" Type="Int32" />
           <NavigationProperty Name="Tümü" Relationship="Self.FK_Tümü_icerik" FromRole="icerik" ToRole="Tümü" />
+          <Property Name="icerikYazisi" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Kullanici">
           <Key>
@@ -202,6 +204,7 @@
           <EntitySetMapping Name="icerik">
             <EntityTypeMapping TypeName="WebProjeModel.icerik">
               <MappingFragment StoreEntitySet="icerik">
+                <ScalarProperty Name="icerikYazisi" ColumnName="icerikYazisi" />
                 <ScalarProperty Name="icerikid" ColumnName="icerikid" />
                 <ScalarProperty Name="icerikYazari" ColumnName="icerikYazari" />
                 <ScalarProperty Name="icerikTarihi" ColumnName="icerikTarihi" />
