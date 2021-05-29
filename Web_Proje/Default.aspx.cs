@@ -11,6 +11,7 @@ namespace Web_Proje
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+           labelhg.Text = Session["isim"].ToString();
 
         }
     }

@@ -49,7 +49,10 @@
 	    <section class="cta-section theme-bg-light py-5">
 		    <div class="container text-center">
 			    <h2 class="heading">Fikir ve Oylama Sistemi</h2>
-			    <div class="intro">--Hoşgeldiniz--</div>
+			    <div class="intro">
+                    <asp:Label ID="labelhg" runat="server" Text=""></asp:Label>
+                    <br />
+                    --Hoşgeldiniz--</div>
 			    </div>
                     <div class="form-group">
                         <label class="sr-only" for="semail">Your email</label>&nbsp;

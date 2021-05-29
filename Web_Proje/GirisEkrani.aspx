@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="GirişEkrani.aspx.cs" Inherits="Web_Proje.GirişEkrani" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="GirisEkrani.aspx.cs" Inherits="Web_Proje.GirişEkrani" %>
 
 <!DOCTYPE html>
 
@@ -15,7 +15,6 @@
     form {
   position: relative;
   z-index: 1;
-  background: #FFFFFF;
   max-width: 360px;
   margin: 0 auto 100px;
   padding: 45px;
@@ -25,7 +24,6 @@
 .form input {
   font-family: "Roboto", sans-serif;
   outline: 0;
-  background: #f2f2f2;
   width: 100%;
   border: 0;
   margin: 0 0 15px;
@@ -52,7 +50,7 @@
 }
 .form .message {
   margin: 15px 0 0;
-  color: #b3b3b3;
+  color: #0026ff;
   font-size: 12px;
 }
 .form .message a {
@@ -96,11 +94,11 @@
   color: #EF3B3A;
 }
 body {
-  background: #76b852; /* fallback for old browsers */
-  background: -webkit-linear-gradient(right, #76b852, #8DC26F);
-  background: -moz-linear-gradient(right, #76b852, #8DC26F);
-  background: -o-linear-gradient(right, #76b852, #8DC26F);
-  background: linear-gradient(to left, #76b852, #8DC26F);
+  background: #5265b8; 
+  background: -webkit-linear-gradient(right, #5265b8, #c26f72);
+  background: -moz-linear-gradient(right, #5265b8, #c26f72);
+  background: -o-linear-gradient(right, #5265b8, #c26f72);
+  background: linear-gradient(to left, #5265b8, #c26f72);
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;      
@@ -112,19 +110,24 @@ body {
             align-items:center;
             justify-content:center;
             flex-direction:column;
-            border:10px solid #0026ff;
+
+            
         }
         .auto-style2 {
             margin-left: 52px;
+
         }
         .auto-style3 {
             margin-left: 30px;
+
         }
         .auto-style4 {
             margin-left: 2px;
+
         }
         .auto-style5 {
             margin-left: 56px;
+
         }
     </style>
   
@@ -141,12 +144,12 @@ body {
       <asp:Label ID="Label1" runat="server" Text="Kullanıcı Adı "></asp:Label><asp:TextBox ID="txtkKullaniciAdi" runat="server" CssClass="auto-style4"></asp:TextBox>
       <br />
       <br />
-      <asp:Label ID="Label2" runat="server" Text="Şifre "></asp:Label><asp:TextBox ID="txtkSifre" runat="server" CssClass="auto-style2"></asp:TextBox>
+      <asp:Label ID="Label2" runat="server" Text="Şifre "></asp:Label><asp:TextBox ID="txtkSifre" TextMode="Password" runat="server" CssClass="auto-style2"></asp:TextBox>
       <br />
       <br />
       <asp:Label ID="Label3" runat="server" Text="E-Posta "></asp:Label><asp:TextBox ID="txtkEposta" runat="server" CssClass="auto-style3"></asp:TextBox>
       <br /> <br />
-        <asp:Button ID="btnKayitOl" runat="server" Text="Kayıt Ol" OnClick="btnKayitOl_Click" />
+        <asp:Button ID="btnKayitOl" runat="server" Text="Kayıt Ol" OnClick="btnKayitOl_Click" BorderStyle="None" />
         </div>
     
         <br />
@@ -157,43 +160,21 @@ body {
         <asp:Label ID="Label4" runat="server" Text="Kullanıcı Adı "></asp:Label><asp:TextBox ID="txtKullaniciAdi" runat="server"></asp:TextBox>
         <br />
         <br />
-        <asp:Label ID="Label5" runat="server" Text="Şifre"></asp:Label><asp:TextBox ID="txtSifre" runat="server" CssClass="auto-style5"></asp:TextBox>
+        <asp:Label ID="Label5" runat="server" Text="Şifre"></asp:Label><asp:TextBox ID="txtSifre" TextMode="Password" runat="server" CssClass="auto-style5"></asp:TextBox>
         <br />
         <br />
         <asp:Button ID="btnGiris" runat="server" Text="Giriş" OnClick="btnGiris_Click" />
         </div>
         </div>
         <div>
-            <asp:GridView ID="GridView1" runat="server" BackColor="White" BorderColor="#3366CC" BorderStyle="None" BorderWidth="1px" CellPadding="4">
-                <FooterStyle BackColor="#99CCCC" ForeColor="#003399" />
-                <HeaderStyle BackColor="#003399" Font-Bold="True" ForeColor="#CCCCFF" />
-                <PagerStyle BackColor="#99CCCC" ForeColor="#003399" HorizontalAlign="Left" />
-                <RowStyle BackColor="White" ForeColor="#003399" />
-                <SelectedRowStyle BackColor="#009999" Font-Bold="True" ForeColor="#CCFF99" />
-                <SortedAscendingCellStyle BackColor="#EDF6F6" />
-                <SortedAscendingHeaderStyle BackColor="#0D4AC4" />
-                <SortedDescendingCellStyle BackColor="#D6DFDF" />
-                <SortedDescendingHeaderStyle BackColor="#002876" />
-            </asp:GridView><br />
-            <asp:Button ID="Button1" runat="server" Text="Getir" OnClick="Button1_Click" />
+            <asp:Label ID="lblUyari" runat="server" Text=""></asp:Label>
+            <br />
         </div>
-
         <div>
-            <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-            <ContentTemplate>
-                <asp:ListBox ID="ListBox1" runat="server"></asp:ListBox>
-                <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-            </ContentTemplate>
-                <Triggers>
-                    <asp:AsyncPostBackTrigger ControlID="Button2" EventName="Click" />
-
-                </Triggers>
-            </asp:UpdatePanel>
-            
-            <asp:Button ID="Button2" runat="server" Text="Button" OnClick="Button2_Click" />
+            <br />
         </div>
-      
+        
+
     </form>
   
 	

@@ -76,7 +76,7 @@
   <ItemGroup>
     <Content Include="dbdiagram.JPG" />
     <Content Include="Default.aspx" />
-    <Content Include="GirişEkrani.aspx" />
+    <Content Include="GirisEkrani.aspx" />
     <Content Include="Template\about.html" />
     <Content Include="Template\assets\css\theme-1.css" />
     <Content Include="Template\assets\css\theme-2.css" />
@@ -176,12 +176,12 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="GirişEkrani.aspx.cs">
-      <DependentUpon>GirişEkrani.aspx</DependentUpon>
+    <Compile Include="GirisEkrani.aspx.cs">
+      <DependentUpon>GirisEkrani.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="GirişEkrani.aspx.designer.cs">
-      <DependentUpon>GirişEkrani.aspx</DependentUpon>
+    <Compile Include="GirisEkrani.aspx.designer.cs">
+      <DependentUpon>GirisEkrani.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
