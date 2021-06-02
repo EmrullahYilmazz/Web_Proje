@@ -77,6 +77,7 @@
     <Content Include="dbdiagram.JPG" />
     <Content Include="Default.aspx" />
     <Content Include="GirisEkrani.aspx" />
+    <Content Include="PostEkle.aspx" />
     <Content Include="Template\about.html" />
     <Content Include="Template\assets\css\theme-1.css" />
     <Content Include="Template\assets\css\theme-2.css" />
@@ -182,6 +183,13 @@
     </Compile>
     <Compile Include="GirisEkrani.aspx.designer.cs">
       <DependentUpon>GirisEkrani.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PostEkle.aspx.cs">
+      <DependentUpon>PostEkle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PostEkle.aspx.designer.cs">
+      <DependentUpon>PostEkle.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

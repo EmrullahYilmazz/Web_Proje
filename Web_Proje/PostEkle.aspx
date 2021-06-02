@@ -1,12 +1,11 @@
-﻿<%@ Page Language="C#" debug="true" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Web_Proje.Default" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="PostEkle.aspx.cs" Inherits="Web_Proje.PostEkle" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-     <title>Fikir ve Oylama Sistemi</title>
-    
+    <title>SoruEkle</title>
     <!-- Meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -28,7 +27,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-       <header class="header text-center">	    
+        <header class="header text-center">	    
 	    <h1 class="blog-name pt-lg-4 mb-0"><a href="Template/index.html">Emrullah&nbsp; Yılmaz</a></h1>
         
 	    <nav class="navbar navbar-expand-lg navbar-dark" >
@@ -38,15 +37,12 @@
 			</button>
 		
 					
-					<div class="bio mb-3">Haftalık seçilen tema üzerine içerik üret ve diğer kullanıcılarının içeriklerini oyla</div><!--//bio-->
+					<div class="bio mb-3">Haftalık seçilen tema üzerine içerik üret ve diğer kullanıcılarının içeriklerini oyla
+                    <br /> <br />
 					
+                        </div><!--//bio-->
 			        
-				
-				
-				
-				
-				
-			</div>
+				   
 		</nav>
     </header>
     
@@ -58,12 +54,13 @@
                 <a href="https://localhost:44320/Default.aspx">Ana Sayfa</a>
                     
                     <a href="https://localhost:44320/PostEkle.aspx">Icerık Ekle</a>
-                <br /><br />
-                <h3>Ana Sayfa</h3>
+                <br />
+                <br />
+                <h3>Soru Ekle</h3>
 			    <div class="intro">
                     <asp:Label ID="labelhg" runat="server" Text=""></asp:Label>
                     <br />
-                    --Hoşgeldiniz--</div>
+                   </div>
 			    </div>
                   
     
@@ -99,12 +96,13 @@
         <tr>
                 <td></td>
         </tr>
+            <asp:TextBox ID="TextBox1" runat="server" Height="140px" TextMode="MultiLine" Width="391px"></asp:TextBox>
         <br />
             <br />
 
          <tr>
              <td>
-                  &nbsp; 
+                 <asp:Button ID="Button1" runat="server" Text="İcerik Ekle" />
              </td>
          </tr>
             </div>
@@ -121,10 +119,8 @@
 
     <!-- Style Switcher (REMOVE ON YOUR PRODUCTION SITE) -->
     <script src="Template/assets/js/demo/style-switcher.js"></script>     
-           
+        <div>
+        </div>
     </form>
-	    
-	   
-	    
-	    </body>
+</body>
 </html>

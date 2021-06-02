@@ -47,7 +47,7 @@ namespace Web_Proje
                 Session.Add("isim", txtKullaniciAdi.Text);
                 Response.Redirect("https://localhost:44320/Default.aspx");
 
-                //Label6.Text = Session["isim"].ToString();
+                
 
 
 
