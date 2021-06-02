@@ -25,6 +25,7 @@ namespace Proje.DataAccess
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<ArticleScore> ArticleScore { get; set; }
         public virtual DbSet<icerik> icerik { get; set; }
         public virtual DbSet<Kullanici> Kullanici { get; set; }
         public virtual DbSet<Tema> Tema { get; set; }

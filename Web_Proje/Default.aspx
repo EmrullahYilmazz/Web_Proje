@@ -17,12 +17,76 @@
     
     <!-- FontAwesome JS-->
     <script defer src="https://use.fontawesome.com/releases/v5.7.1/js/all.js" integrity="sha384-eVEQC9zshBn0rFj4+TU78eNA19HMNigMviK/PU/FFjLXqa/GKPgX58rvt5Z8PLs7" crossorigin="anonymous"></script>
-    
-    <!-- Theme CSS -->  
+    <script src="Scripts/jquery-1.7.1.js"></script>
+    <script language="javascript">
+        $(document).ready(function () {
+            $(".rating-star-block .star").mouseleave(function () {
+                $("#" + $(this).parent().attr('id') + " .star").each(function () {
+                    $(this).addClass("outline");
+                    $(this).removeClass("filled");
+                });
+            });
+            $(".rating-star-block .star").mouseenter(function () {
+                var hoverVal = $(this).attr('rating');
+                $(this).prevUntil().addClass("filled");
+                $(this).addClass("filled");
+                $("#RAT").html(hoverVal);
+            });
+            $(".rating-star-block .star").click(function () {
+
+                var v = $(this).attr('rating');
+                var newScore = 0;
+                var updateP = "#" + $(this).parent().attr('id') + ' .CurrentScore';
+                var artID = $("#" + $(this).parent().attr('id') + ' .icerikid').val();
+
+                $("#" + $(this).parent().attr('id') + " .star").hide();
+                $("#" + $(this).parent().attr('id') + " .yourScore").html("Your Score is : &nbsp;<b style='color:#ff9900; font-size:15px'>" + v + "</b>");
+                $.ajax({
+                    type: "POST",
+                    url: "Default.aspx/SaveRating",
+                    data: "{icerikid: '" + artID + "',rate: '" + v + "'}",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (data) {
+                        setNewScore(updateP, data.d);
+                    },
+                    error: function (data) {
+                        alert(data.d);
+                    }
+                });
+            });
+        });
+        function setNewScore(container, data) {
+            $(container).html(data);
+            $("#myElem").show('1000').delay(2000).queue(function (n) {
+                $(this).hide(); n();
+            });
+        }
+
+    </script>
+     
     <link rel="stylesheet" href="Template/assets/css/theme-1.css">
     <style type="text/css">
         .auto-style2 {
             height: 244px;
+        }
+        .rating-star-block .star.outline {
+            background: url("images/bos.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+        }
+        .rating-star-block .star.filled {
+            background: url("images/dolu.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+        }
+        .rating-star-block .star {
+            color:rgba(0,0,0,0);
+            display : inline-block;
+            height:24px;
+            overflow:hidden;
+            text-indent:-999em;
+            width:24px;
+        }
+        a {
+            color:#005782;
+            text-decoration:none;
         }
     </style>
 </head>
@@ -51,13 +115,13 @@
     </header>
     
     <div class="main-wrapper">
-		    <div class="container text-center" style="height: 124px">
+		    <div class="container text-center" style="height: 207px">
 			    <h2 class="heading">Fikir ve Oylama Sistemi</h2>
                 <br /> 
                 
-                <a href="https://localhost:44320/Default.aspx">Ana Sayfa</a>
+                <a href="Default.aspx">Ana Sayfa</a>
                     
-                    <a href="https://localhost:44320/PostEkle.aspx">Icerık Ekle</a>
+                    <a href="/PostEkle.aspx">Icerık Ekle</a>
                 <br /><br />
                 <h3>Ana Sayfa</h3>
 			    <div class="intro">
@@ -90,26 +154,31 @@
 
        
         <div align="center" class="auto-style2"> 
-        <tr>
-            
-            <td> </td>
-        </tr>
-            <br />
-            <br />
-        <tr>
-                <td></td>
-        </tr>
-        <br />
-            <br />
-
-         <tr>
-             <td>
-                  &nbsp; 
-             </td>
-         </tr>
+             <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="false" CellPadding="5">
+            <Columns>
+                <asp:BoundField HeaderText="Article ID" DataField="icerikid" />
+                <asp:BoundField HeaderText="Article Title" DataField="icerikYazisi" />
+                <asp:TemplateField>
+                    <ItemTemplate>
+                        <div class="rating-star-block" id='div_<%#Container.DataItemIndex %>'>
+                            <input type="hidden" class="articleID" value='<%#Eval("icerikid") %>' />
+                            Current Score :<span class="CurrentScore"><%#Eval("Score") %></span><br /><div class="yourScore">Senin Oyun : </div> 
+                            <a class="star outline" href="#" rating="1" title="vote 1"> vote 1</a>
+                            <a class="star outline" href="#" rating="2" title="vote 2"> vote 2</a>
+                            <a class="star outline" href="#" rating="3" title="vote 3"> vote 3</a>
+                            <a class="star outline" href="#" rating="4" title="vote 4"> vote 4</a>
+                            <a class="star outline" href="#" rating="5" title="vote 5"> vote 5</a>
+                        </div>
+                    </ItemTemplate>
+                </asp:TemplateField>
+            </Columns>
+        </asp:GridView>
+             <div id="myElem" style="position:absolute; top:10px; left:50%; display:none; background-color:yellow; padding:5px; border:1px solid red">
+            Oyladığın için teşekkürler!
+        </div>
             </div>
     
-         &nbsp; 
+         
             
                
            

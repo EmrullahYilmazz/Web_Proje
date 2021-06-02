@@ -77,7 +77,16 @@
     <Content Include="dbdiagram.JPG" />
     <Content Include="Default.aspx" />
     <Content Include="GirisEkrani.aspx" />
+    <Content Include="images\bos.png" />
+    <Content Include="images\dolu.png" />
     <Content Include="PostEkle.aspx" />
+    <None Include="Scripts\jquery-1.7.1.intellisense.js" />
+    <Content Include="Scripts\jquery-1.7.1.js" />
+    <Content Include="Scripts\jquery-1.7.1.min.js" />
+    <Content Include="Scripts\jquery-ui-1.8.20.js" />
+    <Content Include="Scripts\jquery-ui-1.8.20.min.js" />
+    <Content Include="Scripts\modernizr-2.5.3.js" />
+    <None Include="Scripts\_references.js" />
     <Content Include="Template\about.html" />
     <Content Include="Template\assets\css\theme-1.css" />
     <Content Include="Template\assets\css\theme-2.css" />
@@ -170,6 +179,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArticleWithScore.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -12,18 +12,11 @@ namespace Proje.DataAccess
     using System;
     using System.Collections.Generic;
     
-    public partial class icerik
+    public partial class ArticleScore
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public icerik()
-        {
-            this.Tümü = new HashSet<Tümü>();
-        }
-    
+        public int Scoreid { get; set; }
         public int icerikid { get; set; }
-        public string icerikYazisi { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Tümü> Tümü { get; set; }
+        public int Score { get; set; }
+        public System.DateTime CreateDate { get; set; }
     }
 }

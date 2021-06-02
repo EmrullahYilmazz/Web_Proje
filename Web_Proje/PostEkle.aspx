@@ -51,9 +51,9 @@
 			    <h2 class="heading">Fikir ve Oylama Sistemi</h2>
                 <br /> 
                 
-                <a href="https://localhost:44320/Default.aspx">Ana Sayfa</a>
+                <a href="Default.aspx">Ana Sayfa</a>
                     
-                    <a href="https://localhost:44320/PostEkle.aspx">Icerık Ekle</a>
+                    <a href="PostEkle.aspx">Icerık Ekle</a>
                 <br />
                 <br />
                 <h3>Soru Ekle</h3>

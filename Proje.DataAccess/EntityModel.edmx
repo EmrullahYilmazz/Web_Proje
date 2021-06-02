@@ -4,16 +4,22 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="WebProjeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="WebProjeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ArticleScore">
+          <Key>
+            <PropertyRef Name="Scoreid" />
+          </Key>
+          <Property Name="Scoreid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="icerikid" Type="int" Nullable="false" />
+          <Property Name="Score" Type="int" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+        </EntityType>
         <EntityType Name="icerik">
           <Key>
             <PropertyRef Name="icerikid" />
           </Key>
           <Property Name="icerikid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="icerikYazari" Type="varchar" MaxLength="50" />
-          <Property Name="icerikTarihi" Type="varchar" MaxLength="50" />
-          <Property Name="icerikPuani" Type="int" />
-          <Property Name="icerikYazisi" Type="text" />
+          <Property Name="icerikYazisi" Type="varchar" MaxLength="500" />
         </EntityType>
         <EntityType Name="Kullanici">
           <Key>
@@ -78,6 +84,7 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="WebProjeModelStoreContainer">
+          <EntitySet Name="ArticleScore" EntityType="Self.ArticleScore" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="icerik" EntityType="Self.icerik" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Kullanici" EntityType="Self.Kullanici" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tema" EntityType="Self.Tema" Schema="dbo" store:Type="Tables" />
@@ -95,20 +102,27 @@
             <End Role="Tümü" EntitySet="Tümü" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="WebProjeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ArticleScore">
+          <Key>
+            <PropertyRef Name="Scoreid" />
+          </Key>
+          <Property Name="Scoreid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="icerikid" Type="Int32" Nullable="false" />
+          <Property Name="Score" Type="Int32" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
         <EntityType Name="icerik">
           <Key>
             <PropertyRef Name="icerikid" />
           </Key>
           <Property Name="icerikid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="icerikYazari" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="icerikTarihi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="icerikPuani" Type="Int32" />
+          <Property Name="icerikYazisi" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Tümü" Relationship="Self.FK_Tümü_icerik" FromRole="icerik" ToRole="Tümü" />
-          <Property Name="icerikYazisi" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Kullanici">
           <Key>
@@ -178,6 +192,7 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="WebProjeEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ArticleScore" EntityType="Self.ArticleScore" />
           <EntitySet Name="icerik" EntityType="Self.icerik" />
           <EntitySet Name="Kullanici" EntityType="Self.Kullanici" />
           <EntitySet Name="Tema" EntityType="Self.Tema" />
@@ -201,14 +216,21 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="WebProjeModelStoreContainer" CdmEntityContainer="WebProjeEntities">
+          <EntitySetMapping Name="ArticleScore">
+            <EntityTypeMapping TypeName="WebProjeModel.ArticleScore">
+              <MappingFragment StoreEntitySet="ArticleScore">
+                <ScalarProperty Name="Scoreid" ColumnName="Scoreid" />
+                <ScalarProperty Name="icerikid" ColumnName="icerikid" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="icerik">
             <EntityTypeMapping TypeName="WebProjeModel.icerik">
               <MappingFragment StoreEntitySet="icerik">
-                <ScalarProperty Name="icerikYazisi" ColumnName="icerikYazisi" />
                 <ScalarProperty Name="icerikid" ColumnName="icerikid" />
-                <ScalarProperty Name="icerikYazari" ColumnName="icerikYazari" />
-                <ScalarProperty Name="icerikTarihi" ColumnName="icerikTarihi" />
-                <ScalarProperty Name="icerikPuani" ColumnName="icerikPuani" />
+                <ScalarProperty Name="icerikYazisi" ColumnName="icerikYazisi" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
