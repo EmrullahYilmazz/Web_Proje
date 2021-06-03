@@ -7,6 +7,46 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
     <style>
+    .textbox {  
+    height: 50px;  
+    padding: 0 10px;  
+    border: none;  
+    background: Orange;  
+    background: Orange;  
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.5);  
+    font-family: 'Montserrat', sans-serif;  
+    text-indent: 10px;  
+    color: blue;  
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);  
+    font-size: 20px;  
+    width: 470px;  
+}  
+ .textbox:focus {  
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2), inset 0 1px 1px rgba(0, 0, 0, 0.1), 0 0 0 3px rgba(255, 255, 255, 0.15);  
+    outline: none;  
+    background: Orange;  
+    background: Orange;  
+    outline: solid 1px yellow;  
+} 
+    .btn1 { 
+    display: inline-block;
+   cursor: pointer;
+   text-align: center;
+   outline: 1px;
+   color: #fff;
+   background-color: #a16fc2;
+   border: none;
+   border-radius: 10px;
+   box-shadow: 0 7px #CCCCCC;
+     }
+    .btn1:hover {
+        background-color: #a16fc2
+    }
+    .btn1:active{
+         background-color: #a16fc2;
+    box-shadow: 0 4px #666;
+    transform: translateY(5px);
+    }
    .login-page {
         width: 360px;
         padding: 8% 0 0;
@@ -115,18 +155,22 @@ body {
         }
         .auto-style2 {
             margin-left: 52px;
+            border: none;  
 
         }
         .auto-style3 {
             margin-left: 30px;
+            border: none;  
 
         }
         .auto-style4 {
             margin-left: 2px;
+            border: none;  
 
         }
         .auto-style5 {
             margin-left: 56px;
+            border: none;  
 
         }
     </style>
@@ -141,7 +185,7 @@ body {
       <br />
         <h3>Kayıt Ol</h3><br />
       <br />
-      <asp:Label ID="Label1" runat="server" Text="Kullanıcı Adı "></asp:Label><asp:TextBox ID="txtkKullaniciAdi" runat="server" CssClass="auto-style4"></asp:TextBox>
+      <asp:Label ID="Label1" runat="server"  Text="Kullanıcı Adı" ></asp:Label><asp:TextBox ID="txtkKullaniciAdi" runat="server" CssClass="auto-style4" ></asp:TextBox>
       <br />
       <br />
       <asp:Label ID="Label2" runat="server" Text="Şifre "></asp:Label><asp:TextBox ID="txtkSifre" TextMode="Password" runat="server" CssClass="auto-style2"></asp:TextBox>
@@ -149,7 +193,7 @@ body {
       <br />
       <asp:Label ID="Label3" runat="server" Text="E-Posta "></asp:Label><asp:TextBox ID="txtkEposta" runat="server" CssClass="auto-style3"></asp:TextBox>
       <br /> <br />
-        <asp:Button ID="btnKayitOl" runat="server" Text="Kayıt Ol" OnClick="btnKayitOl_Click" BorderStyle="None" />
+        <asp:Button ID="btnKayitOl" runat="server" Text="Kayıt Ol" class="btn1" OnClick="btnKayitOl_Click" BorderStyle="None" Width="90px" />
         </div>
     
         <br />
@@ -163,7 +207,7 @@ body {
         <asp:Label ID="Label5" runat="server" Text="Şifre"></asp:Label><asp:TextBox ID="txtSifre" TextMode="Password" runat="server" CssClass="auto-style5"></asp:TextBox>
         <br />
         <br />
-        <asp:Button ID="btnGiris" runat="server" Text="Giriş" OnClick="btnGiris_Click" />
+        <asp:Button ID="btnGiris" runat="server" Text="Giriş" class="btn1" OnClick="btnGiris_Click" Width="90px" />
         </div>
         </div>
         <div>

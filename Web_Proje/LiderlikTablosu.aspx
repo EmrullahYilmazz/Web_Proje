@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="PostEkle.aspx.cs" Inherits="Web_Proje.PostEkle" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="LiderlikTablosu.aspx.cs" Inherits="Web_Proje.LiderlikTablosu" %>
 
 <!DOCTYPE html>
 
@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="Template/assets/css/theme-1.css">
     <style type="text/css">
         .auto-style2 {
-            height: 244px;
+            height: 283px;
         }
         .btn1 { 
     display: inline-block;
@@ -84,16 +84,17 @@
                 <div class="menu"> <a href="Default.aspx">Ana Sayfa</a>
                     
                     <a href="/PostEkle.aspx">Icerık Ekle</a>
-                                     <a href="LiderlikTablosu.aspx">Liderlik Tablosu</a></div>
-
+                     <a href="/LiderlikTablosu.aspx">Liderlik Tablosu</a>
+                </div>
                 <br />
                 <br />
-                <h3>Post Ekle</h3>
+                <h3>Haftanın Liderlik Tablosu</h3>
 			    <div class="intro">
                     <asp:Label ID="labelhg" runat="server" Text=""></asp:Label>
                     <br />
                    </div>
 			    </div>
+        <br /><br /><br />
                   
     
     
@@ -119,25 +120,18 @@
 
        
         <div align="center" class="auto-style2"> 
-        <tr>
-            
-            <td> </td>
-        </tr>
-            <br />
-            <br />
-        <tr>
-                <td></td>
-        </tr>
-            <asp:TextBox ID="TextBox1" runat="server" Height="140px" TextMode="MultiLine" Width="391px"></asp:TextBox>
-        <br />
-            <br />
-
-         <tr>
-             <td>
-                 <asp:Button ID="Button1" runat="server" Text="İcerik Ekle" class="btn1" OnClick="Button1_Click" />
-             </td>
-         </tr>
+                 <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="LightGreen" BorderColor="Green" BorderStyle="Solid" BorderWidth="2px" DataKeyNames="Scoreid" DataSourceID="SqlDataSource1" ForeColor="White" Height="244px" HorizontalAlign="Center" Width="489px">
+                     <Columns>
+                         <asp:BoundField DataField="Scoreid" HeaderText="Scoreid" InsertVisible="False" ReadOnly="True" SortExpression="Scoreid" />
+                         <asp:BoundField DataField="icerikid" HeaderText="icerikid" SortExpression="icerikid" />
+                         <asp:BoundField DataField="Score" HeaderText="Score" SortExpression="Score" />
+                         <asp:BoundField DataField="CreateDate" HeaderText="CreateDate" SortExpression="CreateDate" />
+                     </Columns>
+            </asp:GridView>
+                 <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:WebProjeConnectionString %>" SelectCommand="SELECT [Scoreid], [icerikid], [Score], [CreateDate] FROM [ArticleScore]"></asp:SqlDataSource>
             </div>
+    
+           
     
          &nbsp; 
             

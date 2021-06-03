@@ -88,6 +88,14 @@
             color:#005782;
             text-decoration:none;
         }
+        .renk{
+            color:dodgerblue;
+            background-color:white;
+        }
+        .menu{
+            color:white;
+            background-color:lightgreen;
+        }
     </style>
 </head>
 <body>
@@ -102,7 +110,13 @@
 			</button>
 		
 					
-					<div class="bio mb-3">Haftalık seçilen tema üzerine içerik üret ve diğer kullanıcılarının içeriklerini oyla</div><!--//bio-->
+					<div class="bio mb-3">Haftalık seçilen tema üzerine içerik üret ve diğer kullanıcılarının içeriklerini oyla
+                         <br /><br />
+                    <div class="renk" >
+                        <a >Bu Haftanın Teması : FELSEFE</a>
+                       </div>
+					</div>
+                   
 					
 			        
 				
@@ -119,16 +133,19 @@
 			    <h2 class="heading">Fikir ve Oylama Sistemi</h2>
                 <br /> 
                 
-                <a href="Default.aspx">Ana Sayfa</a>
+               <div class="menu"> <a href="Default.aspx">Ana Sayfa</a>
                     
                     <a href="/PostEkle.aspx">Icerık Ekle</a>
-                <br /><br />
+                                                     <a href="/LiderlikTablosu.aspx">Liderlik Tablosu</a></div>
+
+                <br />
                 <h3>Ana Sayfa</h3>
 			    <div class="intro">
                     <asp:Label ID="labelhg" runat="server" Text=""></asp:Label>
                     <br />
                     --Hoşgeldiniz--</div>
 			    </div>
+        <br />
                   
     
     
@@ -154,15 +171,15 @@
 
        
         <div align="center" class="auto-style2"> 
-             <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="false" CellPadding="5">
+             <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="false" CellPadding="5" Height="422px" Width="675px">
             <Columns>
-                <asp:BoundField HeaderText="Article ID" DataField="icerikid" />
-                <asp:BoundField HeaderText="Article Title" DataField="icerikYazisi" />
+                <asp:BoundField HeaderText="Sıra Numarası" DataField="icerikid" />
+                <asp:BoundField HeaderText="İçerik" DataField="icerikYazisi" />
                 <asp:TemplateField>
                     <ItemTemplate>
                         <div class="rating-star-block" id='div_<%#Container.DataItemIndex %>'>
                             <input type="hidden" class="articleID" value='<%#Eval("icerikid") %>' />
-                            Current Score :<span class="CurrentScore"><%#Eval("Score") %></span><br /><div class="yourScore">Senin Oyun : </div> 
+                            Toplam Oyu :<span class="CurrentScore"><%#Eval("Score") %></span><br /><div class="yourScore">Senin Oyun : </div> 
                             <a class="star outline" href="#" rating="1" title="vote 1"> vote 1</a>
                             <a class="star outline" href="#" rating="2" title="vote 2"> vote 2</a>
                             <a class="star outline" href="#" rating="3" title="vote 3"> vote 3</a>

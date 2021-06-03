@@ -79,6 +79,7 @@
     <Content Include="GirisEkrani.aspx" />
     <Content Include="images\bos.png" />
     <Content Include="images\dolu.png" />
+    <Content Include="LiderlikTablosu.aspx" />
     <Content Include="PostEkle.aspx" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
@@ -193,6 +194,13 @@
     </Compile>
     <Compile Include="GirisEkrani.aspx.designer.cs">
       <DependentUpon>GirisEkrani.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LiderlikTablosu.aspx.cs">
+      <DependentUpon>LiderlikTablosu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LiderlikTablosu.aspx.designer.cs">
+      <DependentUpon>LiderlikTablosu.aspx</DependentUpon>
     </Compile>
     <Compile Include="PostEkle.aspx.cs">
       <DependentUpon>PostEkle.aspx</DependentUpon>
