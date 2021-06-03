@@ -36,7 +36,7 @@ namespace Web_Proje
                          {
                              AA.Key.icerikid,
                              AA.Key.icerikYazisi,
-                             Score = AA.Sum(a => a.b.Score) == null ? 0 : AA.Sum(a => a.b.Score),
+                             Score = AA.Sum(a => a.b.Score) != 0 ? 0 : AA.Sum(a => a.b.Score),
                              Count = AA.Count()
                          });
                 List<ArticleWithScore> AWS = new List<ArticleWithScore>();

@@ -56,7 +56,7 @@
                     <a href="PostEkle.aspx">Icerık Ekle</a>
                 <br />
                 <br />
-                <h3>Soru Ekle</h3>
+                <h3>Post Ekle</h3>
 			    <div class="intro">
                     <asp:Label ID="labelhg" runat="server" Text=""></asp:Label>
                     <br />
@@ -102,7 +102,7 @@
 
          <tr>
              <td>
-                 <asp:Button ID="Button1" runat="server" Text="İcerik Ekle" />
+                 <asp:Button ID="Button1" runat="server" Text="İcerik Ekle" OnClick="Button1_Click" />
              </td>
          </tr>
             </div>

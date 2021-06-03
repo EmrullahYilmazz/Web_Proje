@@ -13,5 +13,13 @@ namespace Web_Proje
         {
 
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Proje.DataAccess.icerik icerikekle = new Proje.DataAccess.icerik();
+            icerikekle.icerikYazisi = TextBox1.Text;
+            Proje.Business.Post.PostOlustur(icerikekle);
+            TextBox1.Text = "";
+        }
     }
 }
