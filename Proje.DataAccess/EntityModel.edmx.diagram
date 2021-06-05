@@ -5,11 +5,11 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="30d1ac0fa1314c0ab1dc207c486cb80c" Name="Diagram1">
-        <EntityTypeShape EntityType="WebProjeModel.ArticleScore" Width="1.5" PointX="4.875" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebProjeModel.icerik" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebProjeModel.Kullanici" Width="1.5" PointX="0.625" PointY="3.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebProjeModel.Tema" Width="1.5" PointX="5.75" PointY="3.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebProjeModel.Tümü" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebProjeModel.ArticleScore" Width="1.5" PointX="7.875" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebProjeModel.icerik" Width="1.5" PointX="3" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebProjeModel.Kullanici" Width="1.5" PointX="3" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebProjeModel.Tema" Width="1.5" PointX="7.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebProjeModel.Tümü" Width="1.5" PointX="5.125" PointY="1.125" IsExpanded="true" />
         <AssociationConnector Association="WebProjeModel.FK_Tümü_icerik" ManuallyRouted="false" />
         <AssociationConnector Association="WebProjeModel.FK_Tümü_Kullanici" ManuallyRouted="false" />
         <AssociationConnector Association="WebProjeModel.FK_Tümü_Tema" ManuallyRouted="false" />

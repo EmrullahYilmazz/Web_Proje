@@ -46,8 +46,8 @@ namespace Web_Proje
                 lblUyari.Text = "Giriş Başarılı, lütfen bekleyiniz yönlendiriliyorsunuz...";
                 Session.Add("isim", txtKullaniciAdi.Text);
                 Response.Redirect("~/Default.aspx");
-
                 
+
 
 
 

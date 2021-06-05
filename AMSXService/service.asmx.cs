@@ -11,14 +11,11 @@ using System.Text;
 
 namespace AMSXService
 {
-    /// <summary>
-    /// service için özet açıklama
-    /// </summary>
+    
     [WebService(Namespace = "http://tempuri.org/")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [System.ComponentModel.ToolboxItem(false)]
-    // Bu Web Hizmeti'nin, ASP.NET AJAX kullanılarak komut dosyasından çağrılmasına, aşağıdaki satırı açıklamadan kaldırmasına olanak vermek için.
-    // [System.Web.Script.Services.ScriptService]
+    
     public class service : System.Web.Services.WebService
     {
         private DataSet1TableAdapters.KullaniciTableAdapter taAllvids = new DataSet1TableAdapters.KullaniciTableAdapter();

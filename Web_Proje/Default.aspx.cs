@@ -88,6 +88,14 @@ namespace Web_Proje
             
 
         }
+
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            Session.Abandon();
+            Session.Clear();
+            Response.Cookies.Clear();
+            Response.Redirect("~/GirisEkrani.aspx");
+        }
     }
 }
  

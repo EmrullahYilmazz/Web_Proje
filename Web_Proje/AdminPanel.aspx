@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="PostEkle.aspx.cs" Inherits="Web_Proje.PostEkle" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminPanel.aspx.cs" Inherits="Web_Proje.AdminPanel" %>
 
 <!DOCTYPE html>
 
@@ -21,7 +21,8 @@
     <link rel="stylesheet" href="Template/assets/css/theme-1.css">
     <style type="text/css">
         .auto-style2 {
-            height: 244px;
+            height: 612px;
+            margin-top: 153px;
         }
         .btn1 { 
     display: inline-block;
@@ -81,16 +82,14 @@
 			    <h2 class="heading">Fikir ve Oylama Sistemi</h2>
                 <br /> 
                 
-                <div class="menu"> <a href="Default.aspx">Ana Sayfa</a>
-                    
-                    <a href="/PostEkle.aspx">Icerık Ekle</a>
-                                     <a href="LiderlikTablosu.aspx">Liderlik Tablosu</a></div>
-
                 <br />
                 <br />
-                <h3>Post Ekle</h3>
+                <h3>Admin Panel</h3>
+                <br />
+                <asp:Button ID="Button2" runat="server" class="btn1" Text="Kullanıcı Verileri(Web Api)" OnClick="Button2_Click" />
+                <br /><br />
 			    <div class="intro">
-                    <asp:Label ID="labelhg" runat="server" Text=""></asp:Label>
+                    
                     <br />
                    </div>
 			    </div>
@@ -121,20 +120,38 @@
         <div align="center" class="auto-style2"> 
         <tr>
             
-            <td> </td>
+            <td> <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Scoreid" DataSourceID="SqlDataSource2" Width="454px">
+                <Columns>
+                    <asp:BoundField DataField="Scoreid" HeaderText="Scoreid" InsertVisible="False" ReadOnly="True" SortExpression="Scoreid" />
+                    <asp:BoundField DataField="icerikid" HeaderText="icerikid" SortExpression="icerikid" />
+                    <asp:BoundField DataField="Score" HeaderText="Score" SortExpression="Score" />
+                    <asp:BoundField DataField="CreateDate" HeaderText="CreateDate" SortExpression="CreateDate" />
+                </Columns>
+            </asp:GridView>
+            <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:WebProjeConnectionString %>" SelectCommand="SELECT * FROM [ArticleScore]"></asp:SqlDataSource>
+            </td>
         </tr>
             <br />
             <br />
         <tr>
-                <td></td>
+                <td>
+                    <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataKeyNames="icerikid" DataSourceID="SqlDataSource5" Width="455px">
+                        <Columns>
+                            <asp:BoundField DataField="icerikid" HeaderText="icerikid" InsertVisible="False" ReadOnly="True" SortExpression="icerikid" />
+                            <asp:BoundField DataField="icerikYazisi" HeaderText="icerikYazisi" SortExpression="icerikYazisi" />
+                        </Columns>
+            </asp:GridView>
+                <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:WebProjeConnectionString %>" SelectCommand="SELECT * FROM [icerik]"></asp:SqlDataSource>
+                </td>
         </tr>
-            <asp:TextBox ID="TextBox1" runat="server" Height="140px" TextMode="MultiLine" Width="391px"></asp:TextBox>
+          
         <br />
             <br />
 
          <tr>
              <td>
-                 <asp:Button ID="Button1" runat="server" Text="İcerik Ekle" class="btn1" OnClick="Button1_Click" />
+                 <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox><br />Silmek istediğiniz iceriğin idsini giriniz<br />
+                 <asp:Button ID="Button1" runat="server" Text="Sil" class="btn1" Width="66px" />
              </td>
          </tr>
             </div>

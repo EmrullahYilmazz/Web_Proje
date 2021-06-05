@@ -67,7 +67,7 @@
 					<div class="bio mb-3">Haftalık seçilen tema üzerine içerik üret ve diğer kullanıcılarının içeriklerini oyla
                     <br /> <br />
                         <div class="renk" >
-                        <a >Bu Haftanın Teması : FELSEFE</a>
+                        <br /><a >Bu Haftanın Teması : FELSEFE</a> <br /><br /><asp:Button ID="Button3" runat="server" class="btn1" Text="Çıkış Yap" OnClick="Button3_Click" /><br />
                        </div>
 					
                         </div><!--//bio-->

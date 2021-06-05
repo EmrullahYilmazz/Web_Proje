@@ -74,6 +74,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AdminGiris.aspx" />
+    <Content Include="AdminPanel.aspx" />
     <Content Include="dbdiagram.JPG" />
     <Content Include="Default.aspx" />
     <Content Include="GirisEkrani.aspx" />
@@ -180,6 +182,20 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminGiris.aspx.cs">
+      <DependentUpon>AdminGiris.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminGiris.aspx.designer.cs">
+      <DependentUpon>AdminGiris.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPanel.aspx.cs">
+      <DependentUpon>AdminPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPanel.aspx.designer.cs">
+      <DependentUpon>AdminPanel.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ArticleWithScore.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>

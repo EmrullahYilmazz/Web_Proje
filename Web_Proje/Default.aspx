@@ -96,6 +96,25 @@
             color:white;
             background-color:lightgreen;
         }
+        .btn1 { 
+    display: inline-block;
+   cursor: pointer;
+   text-align: center;
+   outline: 1px;
+   color: #fff;
+   background-color: #a16fc2;
+   border: none;
+   border-radius: 10px;
+   box-shadow: 0 7px #CCCCCC;
+     }
+    .btn1:hover {
+        background-color: #a16fc2
+    }
+    .btn1:active{
+         background-color: #a16fc2;
+    box-shadow: 0 4px #666;
+    transform: translateY(5px);
+    }
     </style>
 </head>
 <body>
@@ -113,7 +132,7 @@
 					<div class="bio mb-3">Haftalık seçilen tema üzerine içerik üret ve diğer kullanıcılarının içeriklerini oyla
                          <br /><br />
                     <div class="renk" >
-                        <a >Bu Haftanın Teması : FELSEFE</a>
+                        <br /><a >Bu Haftanın Teması : FELSEFE</a> <br /><br /><asp:Button ID="Button3" runat="server" class="btn1" Text="Çıkış Yap" OnClick="Button3_Click" /><br />
                        </div>
 					</div>
                    

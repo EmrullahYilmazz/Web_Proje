@@ -1,5 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="GirisEkrani.aspx.cs" Inherits="Web_Proje.GirişEkrani" %>
-
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminGiris.aspx.cs" Inherits="Web_Proje.Admingiris" %>
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -180,26 +179,11 @@ body {
     <form id="form1" runat="server">
     <div class="hizala">
 	<div >
-  <div >
-      <br />
-      <br />
-        <h3>Kayıt Ol</h3><br />
-      <br />
-      <asp:Label ID="Label1" runat="server"  Text="Kullanıcı Adı" ></asp:Label><asp:TextBox ID="txtkKullaniciAdi" runat="server" CssClass="auto-style4" ></asp:TextBox>
-      <br />
-      <br />
-      <asp:Label ID="Label2" runat="server" Text="Şifre "></asp:Label><asp:TextBox ID="txtkSifre" TextMode="Password" runat="server" CssClass="auto-style2"></asp:TextBox>
-      <br />
-      <br />
-      <asp:Label ID="Label3" runat="server" Text="E-Posta "></asp:Label><asp:TextBox ID="txtkEposta" runat="server" CssClass="auto-style3"></asp:TextBox>
-      <br /> <br />
-        <asp:Button ID="btnKayitOl" runat="server" Text="Kayıt Ol" class="btn1" OnClick="btnKayitOl_Click" BorderStyle="None" Width="90px" />
-        </div>
-    
-        <br />
-        <br />
+  
+       
         
-      <p class="message"><h3>Giriş Yap</h3></p>
+      <p class="message">
+          <h3>Admin Girişi</h3>
         <br />
         <asp:Label ID="Label4" runat="server" Text="Kullanıcı Adı "></asp:Label><asp:TextBox ID="txtKullaniciAdi" runat="server"></asp:TextBox>
         <br />
@@ -213,7 +197,7 @@ body {
         <div>
             <asp:Label ID="lblUyari" runat="server" Text=""></asp:Label>
             <br /><br />
-            <a href="Admingiris.aspx">Admin Girisi</a>
+            <a href="GirisEkrani.aspx">Kullanıcı Girisi</a>
         </div>
         <div>
             <br />
