@@ -15,5 +15,12 @@ namespace Proje.Business
             ent.icerik.Add(postyap);
             ent.SaveChanges();
         }
+        public static void PostSil(int sil)
+        {
+            Proje.DataAccess.WebProjeEntities ent = new DataAccess.WebProjeEntities();
+            var Icerık = ent.icerik.Where(p => p.icerikid == sil).FirstOrDefault();
+            ent.icerik.Remove(Icerık);
+            ent.SaveChanges();
+        }
     }
 }

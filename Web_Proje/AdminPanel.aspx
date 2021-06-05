@@ -151,7 +151,7 @@
          <tr>
              <td>
                  <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox><br />Silmek istediğiniz iceriğin idsini giriniz<br />
-                 <asp:Button ID="Button1" runat="server" Text="Sil" class="btn1" Width="66px" />
+                 <asp:Button ID="Button1" runat="server" Text="Sil" class="btn1" Width="66px" OnClick="Button1_Click" />
              </td>
          </tr>
             </div>

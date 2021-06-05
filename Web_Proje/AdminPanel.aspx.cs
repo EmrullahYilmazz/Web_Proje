@@ -23,5 +23,14 @@ namespace Web_Proje
         {
             Response.Redirect("~/AdminGiris.aspx");
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            int a = int.Parse(TextBox1.Text);
+            Proje.Business.Post.PostSil(a);
+            TextBox1.Text = "";
+            Response.Redirect("~/AdminPanel.aspx");
+
+        }
     }
 }
