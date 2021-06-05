@@ -9,10 +9,8 @@
 - Kullanıcıların kullanıcı adı, şifresi, e-postası, adı, soyadı ve kayıt tarihi
     vardır.
 - Üretilen içeriğin numarası,yazarı,tarihi ve puanı vardır.
-- Haftanın en çok beğenilen içerikleri kullanıcılar tarafından verilen
-    puanların ortalamasıyla belli olur.
 - Haftanın tema’sının konusu ve numarası vardır.
-- Kullanıcılar haftalık temaya sadece bir kere içerik üretebilirler
+
 
 
 ## Template Ekran Görüntüleri
